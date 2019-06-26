@@ -1,0 +1,36 @@
+package com.example.runningtrial;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class SchoolMainFragment extends FragmentBasic {
+
+    public SchoolMainFragment() {  // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     * @return A new instance of fragment SchoolMainFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static SchoolMainFragment newInstance() {
+        SchoolMainFragment fragment = new SchoolMainFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        rootView = inflater.inflate(R.layout.fragment_school_main, container, false);
+        return rootView;
+    }
+}
