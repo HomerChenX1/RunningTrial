@@ -1,5 +1,6 @@
 package com.example.runningtrial;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 // Intent intent = new Intent(v.getContext(), TestFragmentActivity.class);
                 // startActivity(intent);
 
+                Utils.getCurrentDisplayMetrics(MainActivity.this);
                 Intent intent = new Intent(v.getContext(), TestAppBarActivity.class);
                 startActivity(intent);
             }
