@@ -1,4 +1,4 @@
-package com.example.runningtrial;
+package com.example.runningtrial.pkgs;
 
 public class MessageEvent {
     public final String message;

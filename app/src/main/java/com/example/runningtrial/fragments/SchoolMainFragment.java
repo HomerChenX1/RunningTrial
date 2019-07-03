@@ -1,10 +1,13 @@
-package com.example.runningtrial;
+package com.example.runningtrial.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.runningtrial.R;
+import com.example.runningtrial.base.FragmentBasic;
 
 public class SchoolMainFragment extends FragmentBasic {
 

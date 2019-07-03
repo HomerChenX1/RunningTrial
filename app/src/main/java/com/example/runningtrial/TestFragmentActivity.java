@@ -9,6 +9,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.runningtrial.R;
+import com.example.runningtrial.base.DataWarehouse;
+import com.example.runningtrial.base.FragmentBasic;
+import com.example.runningtrial.fragments.LoginFragment;
+import com.example.runningtrial.fragments.ParentMainFragment;
+import com.example.runningtrial.fragments.SchoolMainFragment;
+
 import java.util.ArrayList;
 
 public class TestFragmentActivity extends AppCompatActivity {

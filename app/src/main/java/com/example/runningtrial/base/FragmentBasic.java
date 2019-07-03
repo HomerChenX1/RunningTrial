@@ -1,4 +1,4 @@
-package com.example.runningtrial;
+package com.example.runningtrial.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

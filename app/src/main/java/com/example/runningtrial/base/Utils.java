@@ -1,4 +1,4 @@
-package com.example.runningtrial;
+package com.example.runningtrial.base;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.util.logging.Logger;
 
-class Utils {
+public class Utils {
     public static int getResId(String resName, Class<?> c) {
         try {
             Field idField = c.getDeclaredField(resName);

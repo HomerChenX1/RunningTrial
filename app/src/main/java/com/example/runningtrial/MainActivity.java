@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.runningtrial.base.DataWarehouse;
+import com.example.runningtrial.base.Utils;
+
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
-    private Button btnMain;
+    private Button btnTestFragment, btnTestAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +66,26 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         tvMain = findViewById(R.id.tvMain);
 
-        btnMain = findViewById(R.id.btnMain);
-        btnMain.setOnClickListener(new View.OnClickListener() {
+        btnTestFragment = findViewById(R.id.btnTestFragment);
+        btnTestFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "btnMain", Toast.LENGTH_SHORT).show();
-                DataWarehouse.getRef().logd(TAG, "btnMain is clicked");
-                // Intent intent = new Intent(v.getContext(), TestFragmentActivity.class);
+                Toast.makeText(v.getContext(), "btnTestFragment", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestFragment is clicked");
+                Intent intent = new Intent(v.getContext(), TestFragmentActivity.class);
+                startActivity(intent);
+                // Utils.getCurrentDisplayMetrics(MainActivity.this);
+                // Intent intent = new Intent(v.getContext(), TestAppBarActivity.class);
                 // startActivity(intent);
+            }
+        });
 
-                Utils.getCurrentDisplayMetrics(MainActivity.this);
+        btnTestAppBar = findViewById(R.id.btnTestAppBar);
+        btnTestAppBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestAppBar", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestAppBar is clicked");
                 Intent intent = new Intent(v.getContext(), TestAppBarActivity.class);
                 startActivity(intent);
             }

@@ -1,17 +1,16 @@
-package com.example.runningtrial;
+package com.example.runningtrial.base;
 
 import android.util.Log;
 import android.widget.TextView;
 
-class DataWarehouse {
+public class DataWarehouse {
     private static final DataWarehouse ourInstance = new DataWarehouse();
     private DataWarehouse() { }
-    static DataWarehouse getRef() {
+    public static DataWarehouse getRef() {
         return ourInstance;
     }
 
     public TextView tvDebug = null;
-
 
     public void logd(String tag, String msg){
         Log.d(tag, msg);

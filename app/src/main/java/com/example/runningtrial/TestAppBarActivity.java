@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -22,6 +23,12 @@ public class TestAppBarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(R.drawable.icons8_menu_64);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "NavigationIcon", Toast.LENGTH_SHORT).show();
+            }
+        });
         toolbar.setLogo(R.drawable.icons8_puffin_bird_48);
         // toolbar.setSubtitle("Subtitle");
 
