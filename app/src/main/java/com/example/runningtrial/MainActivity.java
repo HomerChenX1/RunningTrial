@@ -1,22 +1,23 @@
 package com.example.runningtrial;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
 import com.example.runningtrial.base.Utils;
 
+/* TODO : recycleview : dashBoaardMain, recycleViewDemo
+ */
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
-    private Button btnTestFragment, btnTestAppBar;
+    private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(v.getContext(), "btnTestAppBar", Toast.LENGTH_SHORT).show();
                 DataWarehouse.getRef().logd(TAG, "btnTestAppBar is clicked");
                 Intent intent = new Intent(v.getContext(), TestAppBarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTestRecyclerGrid = findViewById(R.id.btnTestRecyclerGrid);
+        btnTestRecyclerGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestRecyclerGrid", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestRecyclerGrid is clicked");
+                Intent intent = new Intent(v.getContext(), TestRecyclerViewActivity.class);
                 startActivity(intent);
             }
         });
