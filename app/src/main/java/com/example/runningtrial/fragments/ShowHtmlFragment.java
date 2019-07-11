@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.runningtrial.R;
 import com.example.runningtrial.base.FragmentBasic;
@@ -52,14 +53,5 @@ public class ShowHtmlFragment extends FragmentBasic {
 
 
         return rootView;
-    }
-
-    private class WebViewClient extends android.webkit.WebViewClient
-    {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url)
-        {
-            return super.shouldOverrideUrlLoading(view, url);
-        }
     }
 }

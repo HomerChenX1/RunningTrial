@@ -1,30 +1,30 @@
 package com.example.runningtrial;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
-import com.example.runningtrial.base.FragmentBasic;
-import com.example.runningtrial.base.Utils;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
     private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid;
+    private LinearLayout llTestBtnText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+        testImgBtnWithText();
     }
 
     @Override
@@ -101,6 +101,27 @@ public class MainActivity extends AppCompatActivity {
                 DataWarehouse.getRef().logd(TAG, "btnTestRecyclerGrid is clicked");
                 Intent intent = new Intent(v.getContext(), TestRecyclerViewActivity.class);
                 startActivity(intent);
+            }
+        });
+
+
+
+    }
+
+    private void testImgBtnWithText() {
+        llTestBtnText = findViewById(R.id.llTestBtnText);
+        llTestBtnText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click llTestBtnText", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        llTestBtnText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Toast.makeText(MainActivity.this, "Touch llTestBtnText", Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
     }
