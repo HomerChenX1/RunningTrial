@@ -5,16 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.runningtrial.R;
 import com.example.runningtrial.base.DataWarehouse;
 import com.example.runningtrial.base.FragmentBasic;
-import com.example.runningtrial.fragments.LoginFragment;
-import com.example.runningtrial.fragments.ParentMainFragment;
-import com.example.runningtrial.fragments.SchoolMainFragment;
+import com.example.runningtrial.fragments.ShowHtmlFragment;
 
 import java.util.ArrayList;
 
@@ -47,8 +42,7 @@ public class TestFragmentActivity extends AppCompatActivity {
             Fragment fragOld = fm.findFragmentByTag("LoginFragment");
             Fragment fragNew = fm.findFragmentByTag("SchoolMainFragment");
 //            Log.d(TAG, "replace: " + fragOld.getTag() + " to: " + fragNew.getTag() + " " + fragOld.isVisible());
-            fm.beginTransaction().hide(fragOld).show(fragNew)
-                    .commit();
+            // fm.beginTransaction().hide(fragOld).show(fragNew).commit();
 
         }
     }
@@ -77,9 +71,10 @@ public class TestFragmentActivity extends AppCompatActivity {
     private void initFragments() {
         ArrayList<FragmentBasic> frags = new ArrayList<>();
         // start fragments and add them to FragmentManager
-        frags.add(LoginFragment.newInstance());
-        frags.add(ParentMainFragment.newInstance());
-        frags.add(SchoolMainFragment.newInstance());
+        // frags.add(LoginFragment.newInstance());
+        // frags.add(ParentMainFragment.newInstance());
+        // frags.add(SchoolMainFragment.newInstance());
+        frags.add(ShowHtmlFragment.newInstance("privacy.html"));
 
         FragmentManager fm = getSupportFragmentManager();
         for (FragmentBasic frag: frags)

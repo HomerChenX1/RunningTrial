@@ -36,5 +36,4 @@
         android:textAllCaps="false"
         android:text="TestRecyclerGrid" />
 
-
 </LinearLayout>
