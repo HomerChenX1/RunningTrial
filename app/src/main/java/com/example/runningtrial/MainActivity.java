@@ -13,6 +13,12 @@ import android.widget.Toast;
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
 
+/**
+ * NTP
+ * GoogleMap
+ * TTS
+ *
+ */
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
@@ -103,8 +109,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
     }
 
