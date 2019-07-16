@@ -17,7 +17,11 @@ import com.example.runningtrial.base.DataWarehouse;
  * NTP
  * GoogleMap
  * TTS
- *
+ *  need test
+ *    Timer
+ *    appbar
+ *    drawer
+ *    DialogFragment
  */
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();

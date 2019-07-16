@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <stroke
+        android:width="1dp"
+        android:color="?android:attr/colorControlHighlight" />
+
+    <solid android:color="?android:attr/colorButtonNormal" />
+
+    <padding
+        android:left="@dimen/tv_round_radius"
+        android:right="@dimen/tv_round_radius"
+        android:bottom="@dimen/tv_round_radius"
+        android:top="@dimen/tv_round_radius" />
+
+    <corners android:radius="@dimen/tv_round_radius" />
+</shape>

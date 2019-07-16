@@ -12,6 +12,7 @@ import com.example.runningtrial.base.FragmentBasic;
 import com.example.runningtrial.fragments.ShowHtmlFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestFragmentActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
@@ -82,4 +83,12 @@ public class TestFragmentActivity extends AppCompatActivity {
         fm.beginTransaction().show(frags.get(0)).commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        List<Fragment> frags = getSupportFragmentManager().getFragments();
+        for (Fragment frag : frags) {
+
+        }
+    }
 }

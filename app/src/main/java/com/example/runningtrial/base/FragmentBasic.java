@@ -39,6 +39,7 @@ public class FragmentBasic extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         if (this.savedBundle == null)
             outState.putBundle("savedBundle", this.savedBundle);
+
         super.onSaveInstanceState(outState);
     }
 
@@ -133,4 +134,15 @@ public class FragmentBasic extends Fragment {
 
     // processing savedBundle == getArguments()
     protected void initData(Bundle savedBundle) { }
+
+    /**
+     * @return  true: 處理後返回, false :未處理. 由Activity 處理
+     */
+    public boolean onBackPressed(){
+        return false;
+    }
+
+    public interface IOnBackPressed {
+        boolean iOnBackPressed();
+    }
 }
