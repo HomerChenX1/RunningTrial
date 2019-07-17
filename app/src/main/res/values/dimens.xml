@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="tv_round_radius">10dp</dimen>
+    <dimen name="switch_radius">30dp</dimen>
+    <dimen name="marginTop_M">10dp</dimen>
+    <dimen name="marginLeft_M">10dp</dimen>
+
 </resources>

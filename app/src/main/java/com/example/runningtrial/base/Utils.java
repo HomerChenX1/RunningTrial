@@ -30,4 +30,20 @@ public class Utils {
                 + "scaledDensity:" + dm.scaledDensity + "  "
                 + "dpi:" + dm.densityDpi);
     }
+
+    public static interface FragmentBackHandler {
+        boolean onBackPressed();
+    }
+
+    public static interface CommonCallBack {
+        public void callBack(int status, Object msg);
+    }
+    
+    public static interface AsyncChain {
+        // asyncChain.setNext(next).startUp(initMsg), wait Async complete
+        // asyncChain.shutDown(status, statusMsg) -> internal call next.setNext(next2).startUp(initMsgUpdated),
+        // public void setNext(AsyncChain next);  put into new AsyncChain()
+        public void startUp(Object msg);
+        public void shutDown(int status, Object statusMsg);
+    }
 }

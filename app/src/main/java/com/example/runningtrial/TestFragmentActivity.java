@@ -1,5 +1,6 @@
 package com.example.runningtrial;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -83,12 +84,53 @@ public class TestFragmentActivity extends AppCompatActivity {
         fm.beginTransaction().show(frags.get(0)).commit();
     }
 
+    private boolean recursiveFragments(Fragment fragment){
+        boolean isProcessing = false;
+        List<Fragment> fragList = null;
+
+        if (fragment.isVisible()) {
+            // call to processing
+//            if (fragment.IOnBackPressed()) {
+//                isProcessing = true;
+//                return isProcessing;
+//            }
+            // recursive into child
+            fragList = fragment.getChildFragmentManager().getFragments();
+            for (Fragment child : fragList) {
+                if (recursiveFragments(child)){
+                    isProcessing = true;
+                    break;
+                }
+            }
+        }
+        return isProcessing;
+    }
+
+    private boolean recursiveFragments(){
+        boolean isProcessing = false;
+        List<Fragment> fragList = null;
+
+        fragList = getSupportFragmentManager().getFragments();
+        for (Fragment child : fragList) {
+            if (recursiveFragments(child)){
+                isProcessing = true;
+                break;
+            }
+        }
+        return isProcessing;
+    }
+
     @Override
     public void onBackPressed() {
-        // super.onBackPressed();
-        List<Fragment> frags = getSupportFragmentManager().getFragments();
-        for (Fragment frag : frags) {
 
+        if (recursiveFragments())
+            return;
+
+        if (getSupportFragmentManager().getBackStackEntryCount()>0) {
+            getSupportFragmentManager().popBackStack();
+            return;
         }
+
+        super.onBackPressed();
     }
 }

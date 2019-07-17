@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class FragmentBasic extends Fragment {
+import java.util.List;
+
+public class FragmentBasic extends Fragment implements Utils.FragmentBackHandler {
     protected String TAG = getClass().getSimpleName();
     private Bundle savedBundle;  // google suggest to user sharedPreferences not bundle
     protected boolean isVisible = false;  // for BackStack, only press BackPressed if visible
@@ -138,11 +142,50 @@ public class FragmentBasic extends Fragment {
     /**
      * @return  true: 處理後返回, false :未處理. 由Activity 處理
      */
-    public boolean onBackPressed(){
+    @Override
+    public boolean onBackPressed() {
         return false;
     }
 
-    public interface IOnBackPressed {
-        boolean iOnBackPressed();
+    public static boolean isFragmentBackHandled(Fragment fragment) {
+        return fragment != null
+                && fragment.isVisible()
+                && fragment.getUserVisibleHint() //for ViewPager
+                && fragment instanceof Utils.FragmentBackHandler
+                && ((Utils.FragmentBackHandler) fragment).onBackPressed();
+    }
+
+    // MainActivity.onBackPressed : handleBackPress(this)
+    // if(!handleBackPress(this)) super.onBackPressed.
+    public static boolean handleBackPress(AppCompatActivity activity) {
+        return handleBackPress(activity.getSupportFragmentManager());
+    }
+
+    public static boolean handleBackPress(Fragment fragment) {
+        return handleBackPress(fragment.getChildFragmentManager());
+    }
+
+    public static boolean handleBackPress(FragmentManager fragmentManager) {
+        List<Fragment> fragments = fragmentManager.getFragments();
+
+        if (fragments == null) return false;
+
+        // for (int i = fragments.size() - 1; i >= 0; i--) {
+            // Fragment child = fragments.get(i);
+        for (Fragment child : fragments) {
+            if (isFragmentBackHandled(child)) {
+                return true;
+            } else {
+                // child not proceed, recursive to next floor
+                if(handleBackPress(child))
+                    return true;
+            }
+        }
+        // none proceed backPressed
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            fragmentManager.popBackStack();
+            return true;
+        }
+        return false;
     }
 }

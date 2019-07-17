@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <!--theme color-->
+    <color name="navigationBarColor">#ffad60</color>
+
+    <color name="colorPrimaryDark">#eac086</color>
+    <color name="statusBarColor">#eac086</color>
+
+    <color name="colorPrimary">#ffcd94</color>
+    <color name="windowBackground">#ffe0bd</color>
+    <color name="textColorPrimary">#ffe39f</color>
+
+    <!--grey color list-->
+    <color name="grey_0">#f8f8fa</color>
+    <color name="grey_1">#e5e6eb</color>
+    <color name="grey_2">#d2d4dc</color>
+    <color name="grey_3">#c0c2ce</color>
+    <color name="grey_4">#afafaf</color>
+
     <color name="colorAccent">#D81B60</color>
+
     <color name="btnSolid">#ffa6c575</color>
 </resources>
