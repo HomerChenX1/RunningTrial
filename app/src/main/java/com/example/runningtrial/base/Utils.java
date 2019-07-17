@@ -38,7 +38,7 @@ public class Utils {
     public static interface CommonCallBack {
         public void callBack(int status, Object msg);
     }
-    
+
     public static interface AsyncChain {
         // asyncChain.setNext(next).startUp(initMsg), wait Async complete
         // asyncChain.shutDown(status, statusMsg) -> internal call next.setNext(next2).startUp(initMsgUpdated),

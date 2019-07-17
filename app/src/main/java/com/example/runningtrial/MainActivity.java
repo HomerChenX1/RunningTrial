@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +29,9 @@ import com.example.runningtrial.base.DataWarehouse;
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
-    private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid;
+    private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid, btnRipple;
     private LinearLayout llTestBtnText;
+    private Switch switchTxt, switchOrg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +118,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnRipple = findViewById(R.id.btnRipple);
+        btnRipple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnRipple is clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        switchTxt = findViewById(R.id.switchTxt);
+        switchTxt.setOnCheckedChangeListener(swListenser);
+        switchOrg = findViewById(R.id.switchOrg);
+        switchOrg.setOnCheckedChangeListener(swListenser);
     }
 
     private void testImgBtnWithText() {
@@ -125,12 +141,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        llTestBtnText.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(MainActivity.this, "Touch llTestBtnText", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
+//        llTestBtnText.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                Toast.makeText(MainActivity.this, "Touch llTestBtnText", Toast.LENGTH_SHORT).show();
+//                return false;
+//            }
+//        });
     }
+
+    CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            switch (buttonView.getId()) {
+                case R.id.switchTxt:
+                    if (isChecked)
+                        // Toast.makeText(MainActivity.this, "switchTxt is checked", Toast.LENGTH_SHORT).show();
+                        tvMain.setText("switchTxt is checked");
+                    else tvMain.setText("switchTxt is unchecked");
+                    break;
+                case R.id.switchOrg:
+                    if (isChecked)
+                        // Toast.makeText(MainActivity.this, "switchTxt is checked", Toast.LENGTH_SHORT).show();
+                        tvMain.setText("switchOrg is checked");
+                    else tvMain.setText("switchOrg is unchecked");
+                    break;
+            }
+        }
+    };
 }
