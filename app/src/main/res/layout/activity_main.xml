@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/marginTop_M"
         android:background="@drawable/tv_round"
         android:text="TextView" />
 
@@ -38,28 +39,52 @@
         android:text="TestRecyclerGrid" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@drawable/tv_round"
-        android:id="@+id/llTestBtnText" >
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <LinearLayout
+            android:id="@+id/llTestBtnText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@mipmap/ico_video" />
+            android:background="@drawable/tv_round"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal">
 
-        <TextView
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/ico_video" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="@string/test_imgbtn_with_text" />
+        </LinearLayout>
+
+        <!--no good background for ToggleButton-->
+        <ToggleButton
+            android:id="@+id/tbtnToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_weight="1"
-            android:text="@string/test_imgbtn_with_text" />
+            android:textOn="On"
+            android:textOff="Off" />
+
+        <CheckBox
+            android:id="@+id/cbox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/check_box_style"
+            android:text="CheckBox" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -117,28 +142,36 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/tv_round"
+        android:layout_marginTop="@dimen/marginTop_M"
         android:orientation="horizontal">
 
-        <ToggleButton
-            android:id="@+id/tbtnToggle"
+        <RadioButton
+            android:id="@+id/rbtn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:button="@drawable/radio_button_selector"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:textOn="On"
-            android:textOff="Off" />
+            android:text="RadioButton1" />
 
-    </LinearLayout>
+        <RadioButton
+            android:id="@+id/rbtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio_button_selector"
+            android:layout_weight="1"
+            android:text="RadioButton2" />
 
-
-
-
-
-
-
-
+        <RadioButton
+            android:id="@+id/rbtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio_button_selector"
+            android:layout_weight="1"
+            android:text="RadioButton3" />
+    </RadioGroup>
 
 </LinearLayout>

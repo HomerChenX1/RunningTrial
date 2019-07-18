@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid, btnRipple;
     private LinearLayout llTestBtnText;
     private Switch switchTxt, switchOrg;
+    private ToggleButton tbtnToggle;
+    private CheckBox cbox1;
+    private RadioButton rbtn1, rbtn2, rbtn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +136,18 @@ public class MainActivity extends AppCompatActivity {
         switchTxt.setOnCheckedChangeListener(swListenser);
         switchOrg = findViewById(R.id.switchOrg);
         switchOrg.setOnCheckedChangeListener(swListenser);
+        tbtnToggle = findViewById(R.id.tbtnToggle);
+        tbtnToggle.setOnCheckedChangeListener(swListenser);
+        cbox1 = findViewById(R.id.cbox1);
+        cbox1.setOnCheckedChangeListener(swListenser);
+
+        rbtn1 = findViewById(R.id.rbtn1);
+        rbtn2 = findViewById(R.id.rbtn2);
+        rbtn3 = findViewById(R.id.rbtn3);
+        rbtn1.setOnCheckedChangeListener(swListenser);
+        rbtn2.setOnCheckedChangeListener(swListenser);
+        rbtn3.setOnCheckedChangeListener(swListenser);
+
     }
 
     private void testImgBtnWithText() {
@@ -141,13 +159,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        llTestBtnText.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Toast.makeText(MainActivity.this, "Touch llTestBtnText", Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
     }
 
     CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {
@@ -155,18 +166,33 @@ public class MainActivity extends AppCompatActivity {
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()) {
                 case R.id.switchTxt:
-                    if (isChecked)
-                        // Toast.makeText(MainActivity.this, "switchTxt is checked", Toast.LENGTH_SHORT).show();
-                        tvMain.setText("switchTxt is checked");
-                    else tvMain.setText("switchTxt is unchecked");
+                    showChecked("switchTxt", isChecked);
                     break;
                 case R.id.switchOrg:
-                    if (isChecked)
-                        // Toast.makeText(MainActivity.this, "switchTxt is checked", Toast.LENGTH_SHORT).show();
-                        tvMain.setText("switchOrg is checked");
-                    else tvMain.setText("switchOrg is unchecked");
+                    showChecked("switchOrg", isChecked);
+                    break;
+                case R.id.tbtnToggle:
+                    showChecked("tbtnToggle", isChecked);
+                    break;
+                case R.id.cbox1:
+                    showChecked("cbox1", isChecked);
+                    break;
+
+                case R.id.rbtn1:
+                    showChecked("RadioButton1", isChecked);
+                    break;
+                case R.id.rbtn2:
+                    showChecked("RadioButton2", isChecked);
+                    break;
+                case R.id.rbtn3:
+                    showChecked("RadioButton3", isChecked);
                     break;
             }
         }
     };
+
+    private void showChecked(String btnName, boolean isChecked){
+        if (isChecked) tvMain.setText(btnName + " is checked");
+        else tvMain.setText(btnName + " is unchecked");
+    }
 }
