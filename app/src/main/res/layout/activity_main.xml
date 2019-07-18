@@ -38,6 +38,16 @@
         android:textAllCaps="false"
         android:text="TestRecyclerGrid" />
 
+    <Button
+        android:id="@+id/btnDrawable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ico_video"
+        android:background="@drawable/ripple_effect"
+        android:paddingLeft="10dp"
+        android:textAllCaps="false"
+        android:text=" Drawable " />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -146,7 +156,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/tv_round"
-        android:layout_marginTop="@dimen/marginTop_M"
+        android:layout_marginBottom="@dimen/marginTop_M"
         android:orientation="horizontal">
 
         <RadioButton
@@ -173,5 +183,12 @@
             android:layout_weight="1"
             android:text="RadioButton3" />
     </RadioGroup>
+
+    <NumberPicker
+        android:id="@+id/np_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/number_picker_draw"
+        android:theme="@style/NumberPickerText"/>
 
 </LinearLayout>

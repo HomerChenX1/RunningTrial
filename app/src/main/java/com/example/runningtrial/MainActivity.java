@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private ToggleButton tbtnToggle;
     private CheckBox cbox1;
     private RadioButton rbtn1, rbtn2, rbtn3;
+    private NumberPicker np;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +149,16 @@ public class MainActivity extends AppCompatActivity {
         rbtn1.setOnCheckedChangeListener(swListenser);
         rbtn2.setOnCheckedChangeListener(swListenser);
         rbtn3.setOnCheckedChangeListener(swListenser);
+
+        np = findViewById(R.id.np_picker);
+        np.setMinValue(1);
+        np.setMaxValue(60);
+        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int numPrev, int numNow) {
+                tvMain.setText("NumberPicker numNow:" + numNow);
+            }
+        });
 
     }
 
