@@ -1,9 +1,8 @@
 package com.example.runningtrial;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,7 +10,6 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,9 +19,9 @@ import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
 
 /**
- * NTP
+ * NTP : OK
  * GoogleMap
- * TTS
+ * TTS : OK
  *  need test
  *    Timer
  *    appbar
