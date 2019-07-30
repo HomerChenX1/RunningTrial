@@ -22,7 +22,6 @@ import com.example.runningtrial.base.DataWarehouse;
  * NTP : OK
  * GoogleMap
  * TTS : OK
- *  need test
  *    Timer
  *    appbar
  *    drawer

@@ -8,6 +8,12 @@ import android.util.Log;
 
 import java.util.Locale;
 
+/**
+ *  watch.stdtime.gov.tw
+ * 	time.stdtime.gov.tw
+ * 	clock.stdtime.gov.tw
+ * 	tick.stdtime.gov.tw
+ */
 public class SubSysTTS implements TextToSpeech.OnInitListener {
     private String TAG = getClass().getSimpleName();
     private TextToSpeech mTextToSpeech = null;
