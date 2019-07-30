@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
     private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid, btnRipple;
+    private Button btnTestDrawer;
     private LinearLayout llTestBtnText;
     private Switch switchTxt, switchOrg;
     private ToggleButton tbtnToggle;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
-        testImgBtnWithText();
     }
 
     @Override
@@ -157,14 +157,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void testImgBtnWithText() {
-        llTestBtnText = findViewById(R.id.llTestBtnText);
-        llTestBtnText.setOnClickListener(new View.OnClickListener() {
+        btnTestDrawer = findViewById(R.id.btnTestDrawer);
+        btnTestDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Click llTestBtnText", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "btnTestDrawer", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestDrawer is clicked");
+                // Intent intent = new Intent(v.getContext(), TestFragmentActivity.class);
+                // startActivity(intent);
             }
         });
 

@@ -26,4 +26,18 @@
     <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
     <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
 
+    <android.support.design.widget.NavigationView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:visibility="gone"
+        android:id="@+id/navigation_view"
+        android:layout_width="240dp"
+        android:layout_gravity="start|start"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        app:menu="@menu/drawer"
+        app:headerLayout="@layout/header_layout" />
+
+
 </LinearLayout>
