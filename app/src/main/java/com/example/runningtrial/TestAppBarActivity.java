@@ -12,9 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
-/*
-http://huli.logdown.com/posts/285806-android-searchview-notes
- */
 public class TestAppBarActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
     boolean navigationViewOn = false;
@@ -57,7 +54,13 @@ public class TestAppBarActivity extends AppCompatActivity implements NavigationV
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.favorite_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.app_bar_search);
+        // SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView = (SearchView) searchItem.getActionView();
+        // Assumes current activity is the searchable activity
+        //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        // 這邊讓icon可以還原到搜尋的icon
+        // searchView.setIconifiedByDefault(true);
+
         searchView.setOnQueryTextListener(queryListener);
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override

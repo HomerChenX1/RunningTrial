@@ -56,6 +56,20 @@
             android:textAllCaps="false"
             android:text="TestDrawer" />
 
+        <Button
+            android:id="@+id/btnTestDrawerActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="TestDrawerActivity" />
+
+        <Button
+            android:id="@+id/btnTestCoordinate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="TestCoordinateLayout" />
+
     </LinearLayout>
 
     <LinearLayout

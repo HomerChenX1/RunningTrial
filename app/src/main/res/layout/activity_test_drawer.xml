@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestDrawerActivity">
+    tools:context=".TestDrawerActivity" >
 
-</android.support.constraint.ConstraintLayout>
+    <!-- Notice : DrawerLayout includes Toolbar -->
+    <!-- The main content view -->
+    <RelativeLayout
+        android:background="@color/windowBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- android:background="@color/colorPrimary, not "?attr/colorPrimary" -->
+        <android.support.v7.widget.Toolbar
+            android:layout_alignParentTop="true"
+            android:id="@+id/toolbar"
+
+            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            android:background="@color/colorPrimary"
+            android:elevation="6dp"
+            app:title="TestDrawerActivity"
+            app:subtitle="SubTitle"
+            app:titleTextColor="@android:color/white"
+            app:subtitleTextColor="@android:color/holo_orange_light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+            />
+    </RelativeLayout>
+    <!-- The navigation drawer -->
+    <!-- layout_gravity determines the direction of drawer -->
+    <RelativeLayout
+        android:layout_gravity="start"
+        android:background="@color/btnSolid"
+        android:layout_width="200dp"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_gravity="end"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="200dp"
+        android:layout_height="match_parent" />
+</android.support.v4.widget.DrawerLayout>

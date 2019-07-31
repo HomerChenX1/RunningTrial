@@ -10,6 +10,14 @@
     <color name="windowBackground">#ffe0bd</color>
     <color name="textColorPrimary">#ffe39f</color>
 
+    <!-- item name="android:colorPrimary">?attr/colorPrimary</item> -->
+    <!-- item name="android:colorPrimaryDark">?attr/colorPrimaryDark</item> -->
+    <!-- item name="android:colorAccent">?attr/colorAccent</item> -->
+    <!-- item name="android:colorControlNormal">?attr/colorControlNormal</item> -->
+    <!-- item name="android:colorControlActivated">?attr/colorControlActivated</item> -->
+    <!-- item name="android:colorControlHighlight">?attr/colorControlHighlight</item> -->
+    <!-- TODO: <item name="android:colorButtonNormal">?attr/colorButtonNormal</item> -->
+
     <!--grey color list-->
     <color name="grey_0">#f8f8fa</color>
     <color name="grey_1">#e5e6eb</color>

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Switch;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.runningtrial.UI.TestCoordinateLayoutActivity;
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.base.DataWarehouse;
 
@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
     private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid, btnRipple;
-    private Button btnTestDrawer;
-    private LinearLayout llTestBtnText;
+    private Button btnTestDrawer, btnTestDrawerActivity, btnTestCoordinate;
+
     private Switch switchTxt, switchOrg;
     private ToggleButton tbtnToggle;
     private CheckBox cbox1;
@@ -163,11 +163,32 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "btnTestDrawer", Toast.LENGTH_SHORT).show();
                 DataWarehouse.getRef().logd(TAG, "btnTestDrawer is clicked");
-                // Intent intent = new Intent(v.getContext(), TestFragmentActivity.class);
-                // startActivity(intent);
+                Intent intent = new Intent(v.getContext(), TestDrawerActivity.class);
+                startActivity(intent);
             }
         });
 
+        btnTestDrawerActivity = findViewById(R.id.btnTestDrawerActivity);
+        btnTestDrawerActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestDrawerActivity", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestDrawer is clicked");
+                Intent intent = new Intent(v.getContext(), TestDrawerLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTestCoordinate = findViewById(R.id.btnTestCoordinate);
+        btnTestCoordinate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestCoordinate", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestCoordinate is clicked");
+                Intent intent = new Intent(v.getContext(), TestCoordinateLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {
