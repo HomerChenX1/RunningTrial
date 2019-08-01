@@ -1,7 +1,6 @@
 package com.example.runningtrial.subsys;
 
 import android.content.Context;
-import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
@@ -15,8 +14,8 @@ import java.util.Locale;
  * 	tick.stdtime.gov.tw
  */
 public class SubSysTTS implements TextToSpeech.OnInitListener {
-    private String TAG = getClass().getSimpleName();
-    private TextToSpeech mTextToSpeech = null;
+    private final String TAG = getClass().getSimpleName();
+    private TextToSpeech mTextToSpeech;
     private Locale locale = Locale.US;  // 不要用 Locale.ENGLISH, 會預設用英文(印度)
     private boolean isLoaded = false;
 
@@ -39,7 +38,7 @@ public class SubSysTTS implements TextToSpeech.OnInitListener {
         } else isLoaded = false;
     }
 
-    public void close(){
+    private void close(){
         if(mTextToSpeech != null)
         {
             mTextToSpeech.stop();
@@ -50,32 +49,18 @@ public class SubSysTTS implements TextToSpeech.OnInitListener {
     // 發音任務將被添加到當前任務列隊之後
     public void queueSpeak(String text) {
         if (isLoaded) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                // mTextToSpeech.speak(text,TextToSpeech.QUEUE_ADD,null,null);
-                mTextToSpeech.speak(text,TextToSpeech.QUEUE_ADD,null,"UniqueID");
-            }
-            // else {
-                // old style
-                // mTextToSpeech.speak(text, TextToSpeech.QUEUE_ADD, null);
-            // }
+            mTextToSpeech.speak(text, TextToSpeech.QUEUE_ADD,null,"UniqueID");
         }
     }
 
     // 會中斷當前實例正在運行的任務
     public void flushSpeak(String text) {
         if (isLoaded) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                // mTextToSpeech.speak(text,TextToSpeech.QUEUE_FLUSH,null,null);
-                mTextToSpeech.speak(text,TextToSpeech.QUEUE_FLUSH,null,"UniqueID");
-            }
-            // else {
-                // old style
-                // mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-            // }
+            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null,"UniqueID");
         }
     }
 
-    private UtteranceProgressListener listener = new UtteranceProgressListener() {
+    private final UtteranceProgressListener listener = new UtteranceProgressListener() {
         @Override
         public void onStart(String utteranceId) {
             Log.d(TAG, "TTS start: " + utteranceId);

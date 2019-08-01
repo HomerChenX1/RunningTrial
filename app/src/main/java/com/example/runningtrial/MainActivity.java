@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.runningtrial.UI.TestAppBarLayoutActivity;
 import com.example.runningtrial.UI.TestCoordinateLayoutActivity;
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
+import com.example.runningtrial.UI.TestViewDragHelperActivity;
 import com.example.runningtrial.base.DataWarehouse;
 
 /**
@@ -23,15 +25,22 @@ import com.example.runningtrial.base.DataWarehouse;
  * GoogleMap
  * TTS : OK
  *    Timer
- *    appbar
- *    drawer
+ *    appbar OK
+ *    drawer OK
  *    DialogFragment
+ *    scroller
+ *    view custom
+ *    appbarlayout OK
+ *    bottomsheet OK
+ *    view pager
+ *    vertical viewpager : https://stackoverflow.com/questions/13477820/android-vertical-viewpager
  */
 public class MainActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private TextView tvMain;
     private Button btnTestFragment, btnTestAppBar, btnTestRecyclerGrid, btnRipple;
     private Button btnTestDrawer, btnTestDrawerActivity, btnTestCoordinate;
+    private Button btnTestDragHelper, btnTestAppBarLayout;
 
     private Switch switchTxt, switchOrg;
     private ToggleButton tbtnToggle;
@@ -186,6 +195,28 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(v.getContext(), "btnTestCoordinate", Toast.LENGTH_SHORT).show();
                 DataWarehouse.getRef().logd(TAG, "btnTestCoordinate is clicked");
                 Intent intent = new Intent(v.getContext(), TestCoordinateLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTestDragHelper = findViewById(R.id.btnTestDragHelper);
+        btnTestDragHelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestDragHelper", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestDragHelper is clicked");
+                Intent intent = new Intent(v.getContext(), TestViewDragHelperActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTestAppBarLayout = findViewById(R.id.btnTestAppBarLayout);
+        btnTestAppBarLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "btnTestAppBarLayout", Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, "btnTestAppBarLayout is clicked");
+                Intent intent = new Intent(v.getContext(), TestAppBarLayoutActivity.class);
                 startActivity(intent);
             }
         });

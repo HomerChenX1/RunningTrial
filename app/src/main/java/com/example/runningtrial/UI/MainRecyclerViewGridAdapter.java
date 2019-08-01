@@ -66,6 +66,7 @@ class MainRecyclerViewGridAdapter extends RecyclerView.Adapter<MainRecyclerViewG
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // TODO position -> holder.getAdapterPosition()
                 Toast.makeText(v.getContext(), "Item " + position + " is clicked.", Toast.LENGTH_LONG).show();
                 // DataWarehouse.getRef().TvDebug.setText("Item " + position + " is clicked.");
             }

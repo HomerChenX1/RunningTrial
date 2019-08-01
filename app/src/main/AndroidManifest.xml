@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.TestCoordinateLayoutActivity"></activity>
+        <activity android:name=".UI.TestAppBarLayoutActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UI.TestViewDragHelperActivity" />
+        <activity android:name=".UI.TestCoordinateLayoutActivity" />
         <activity
             android:name=".TestDrawerLayoutActivity"
             android:label="@string/title_activity_test_drawer_layout"

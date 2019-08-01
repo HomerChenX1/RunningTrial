@@ -1,11 +1,13 @@
 package com.example.runningtrial.base;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 // https://www.jianshu.com/p/f45b46be671e
+@SuppressLint("Registered")
 public class ActivityBasic extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();
     private Bundle savedBundle;  // google suggest to user sharedPreferences not bundle

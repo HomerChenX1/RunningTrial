@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.runningtrial.UI.VDHLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UI.TestViewDragHelperActivity">
+
+    <ImageView
+        android:id="@+id/ivCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cat0"
+        android:background="@color/navigationBarColor"
+        android:contentDescription="Cat"/>
+
+    <ImageView
+        android:id="@+id/ivDog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_dog3"
+        android:background="@color/grey_1"
+        android:contentDescription="Dog"/>
+
+    <ImageView
+        android:id="@+id/ivCow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cow"
+        android:background="@color/btnSolid"
+        android:contentDescription="Cow"/>
+</com.example.runningtrial.UI.VDHLayout>

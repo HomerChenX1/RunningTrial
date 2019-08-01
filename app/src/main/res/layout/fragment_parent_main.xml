@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ParentMainFragment">
+    tools:context=".fragments.ParentMainFragment">
     <TextView
         android:id="@+id/tvLoginFragment"
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_test_cooridinate_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.TestCoordinateLayoutActivity">
@@ -10,6 +11,7 @@
     <android.support.v7.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/appCompBtn2"
         android:text="@string/test_button_2"
         android:background="@color/btnSolid"
         android:textColor="@android:color/white"
@@ -25,5 +27,6 @@
         android:background="@color/btnSolid"
         android:layout_gravity="start"
         android:textColor="@android:color/white" />
-
+    <!--direct write here will induce failure : app:behavior_hideable="true" -->
+    <include layout="@layout/bottom_sheet" />
 </android.support.design.widget.CoordinatorLayout>
