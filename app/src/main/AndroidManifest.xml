@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".GlobalApplication"
@@ -13,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.TestAppBarLayoutActivity"
+        <receiver android:name=".subsys.SnoozeReceiver" />
+        <activity android:name=".subsys.TestNoti2Activity" />
+        <activity android:name=".subsys.TestNotificationActivity" />
+        <activity
+            android:name=".UI.TestAppBarLayoutActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UI.TestViewDragHelperActivity" />
         <activity android:name=".UI.TestCoordinateLayoutActivity" />

@@ -19,6 +19,7 @@ import com.example.runningtrial.UI.TestCoordinateLayoutActivity;
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.UI.TestViewDragHelperActivity;
 import com.example.runningtrial.base.DataWarehouse;
+import com.example.runningtrial.subsys.TestNotificationActivity;
 
 /**
  * NTP : OK
@@ -210,16 +211,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTestAppBarLayout = findViewById(R.id.btnTestAppBarLayout);
-        btnTestAppBarLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "btnTestAppBarLayout", Toast.LENGTH_SHORT).show();
-                DataWarehouse.getRef().logd(TAG, "btnTestAppBarLayout is clicked");
-                Intent intent = new Intent(v.getContext(), TestAppBarLayoutActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btnTestAppBarLayout = findViewById(R.id.btnTestAppBarLayout);
+//        btnTestAppBarLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(), "btnTestAppBarLayout", Toast.LENGTH_SHORT).show();
+//                DataWarehouse.getRef().logd(TAG, "btnTestAppBarLayout is clicked");
+//                Intent intent = new Intent(v.getContext(), TestAppBarLayoutActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+        setupButton(R.id.btnTestAppBarLayout, "btnTestAppBarLayout", TestAppBarLayoutActivity.class);
+        setupButton(R.id.btnTestNotication, "btnTestNotication", TestNotificationActivity.class);
     }
 
     CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {
@@ -255,5 +258,19 @@ public class MainActivity extends AppCompatActivity {
     private void showChecked(String btnName, boolean isChecked){
         if (isChecked) tvMain.setText(btnName + " is checked");
         else tvMain.setText(btnName + " is unchecked");
+    }
+
+    private void setupButton(int resId, final String s, final Class<?> cls) {
+        Button btn = findViewById(resId);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), s, Toast.LENGTH_SHORT).show();
+                DataWarehouse.getRef().logd(TAG, s + " is clicked");
+                Intent intent = new Intent(v.getContext(), cls);
+                startActivity(intent);
+            }
+        });
     }
 }
