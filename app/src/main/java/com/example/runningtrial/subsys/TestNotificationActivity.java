@@ -30,6 +30,8 @@ public class TestNotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_notification);
 
+        setTitle("TestNotificationActivity");
+
         new NotificationBase(this).createChannel()
                 .sendPrepare().setStyle()
                 // .sendBundle("email", TestNoti2Activity.class,
@@ -42,6 +44,8 @@ public class TestNotificationActivity extends AppCompatActivity {
 
 class NotificationBase {
     String TAG = getClass().getSimpleName();
+
+    // needed for Notification
     Context context;
     NotificationManagerCompat notificationManager;
     NotificationCompat.Builder builder;
@@ -53,6 +57,7 @@ class NotificationBase {
     int NOTIFICATION_ID = 0;  // 使用參數指定的編號發出通知，如果這個編號的通知已經存在，就使用通知物件更新原來通知的內容。
     public final static String ACTION_SNOOZE = "SNOOZE";
 
+    // needed for Notification Channel
     CharSequence name = "Love channel";
     String description = "最重要的人";
     String CHANNEL_ID = "idLove";
@@ -68,6 +73,7 @@ class NotificationBase {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             builder = new NotificationCompat.Builder(context, CHANNEL_ID);
         else
+            //noinspection deprecation
             builder = new NotificationCompat.Builder(context);
 
         builder.setContentTitle(title).setContentText(content).setContentInfo("ContentInfo")

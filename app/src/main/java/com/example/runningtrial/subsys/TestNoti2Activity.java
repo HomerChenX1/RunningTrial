@@ -13,6 +13,7 @@ public class TestNoti2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_noti2);
+        setTitle("TestNoti2Activity");
         findViews();
         showEmail();
     }
