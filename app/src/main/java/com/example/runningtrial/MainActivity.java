@@ -20,6 +20,7 @@ import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.UI.TestViewDragHelperActivity;
 import com.example.runningtrial.base.DataWarehouse;
 import com.example.runningtrial.subsys.TestNotificationActivity;
+import com.example.runningtrial.subsys.TestServicesActivity;
 
 /**
  * NTP : OK
@@ -223,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
         setupButton(R.id.btnTestAppBarLayout, "btnTestAppBarLayout", TestAppBarLayoutActivity.class);
         setupButton(R.id.btnTestNotication, "btnTestNotication", TestNotificationActivity.class);
+        setupButton(R.id.btnTestServiceBind, "btnTestServiceBind", TestServicesActivity.class);
     }
 
     CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {

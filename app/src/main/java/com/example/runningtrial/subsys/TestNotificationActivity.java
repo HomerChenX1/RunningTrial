@@ -54,7 +54,8 @@ class NotificationBase {
     Bitmap largeIcon;
     String title = "Hello";
     String content = "Work Hard!";
-    int NOTIFICATION_ID = 0;  // 使用參數指定的編號發出通知，如果這個編號的通知已經存在，就使用通知物件更新原來通知的內容。
+    int NOTIFICATION_ID = 1;  // 使用參數指定的編號發出通知，如果這個編號的通知已經存在，就使用通知物件更新原來通知的內容。
+    // NOTIFICATION_ID can not be 0
     public final static String ACTION_SNOOZE = "SNOOZE";
 
     // needed for Notification Channel
@@ -62,6 +63,13 @@ class NotificationBase {
     String description = "最重要的人";
     String CHANNEL_ID = "idLove";
     int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+    public NotificationBase setImportance(int importance) {
+        this.importance = importance;
+        return this;
+    }
+
+    public int getNOTIFICATION_ID() { return NOTIFICATION_ID; }
 
     public NotificationBase(Context context) {
         this.context = context;
@@ -77,7 +85,8 @@ class NotificationBase {
             builder = new NotificationCompat.Builder(context);
 
         builder.setContentTitle(title).setContentText(content).setContentInfo("ContentInfo")
-                .setSmallIcon(iconId).setLargeIcon(largeIcon)
+                .setSmallIcon(iconId)
+                // .setLargeIcon(largeIcon)
                 .setWhen(System.currentTimeMillis())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
@@ -126,6 +135,13 @@ class NotificationBase {
         // for new style, use NotificationCompat notification
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+
+    public Notification build(){
+        // for old style, use Notification notification
+        // for new style, use NotificationCompat notification
+        Notification notification = builder.build();
+        return notification;
     }
 
     public void cancel(){

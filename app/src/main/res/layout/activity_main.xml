@@ -105,6 +105,20 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnTestServiceBind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="TestServiceBind" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
             android:id="@+id/btnDrawable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
