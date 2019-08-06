@@ -16,7 +16,13 @@ import java.util.Date;
  *   build a NtpMessage class
  *   run a java TCP DatagramSocket server
  *   send a packet then receive the response
+ *
+ *  watch.stdtime.gov.tw
+ * 	time.stdtime.gov.tw
+ * 	clock.stdtime.gov.tw
+ * 	tick.stdtime.gov.tw
  */
+
 public class NtpsClient {
     int retry = 2;
     int port = 123;

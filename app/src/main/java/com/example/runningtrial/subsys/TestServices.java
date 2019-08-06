@@ -10,6 +10,14 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 public class TestServices extends Service {
     String TAG = getClass().getSimpleName();
     private PowerManager.WakeLock wakeLock;
@@ -19,9 +27,22 @@ public class TestServices extends Service {
     boolean isBound = false;
     boolean stopFlag = true;
     boolean isForeground = true;
+    Tts tts;
+    public FbTest fbTest;
     // start -service can include bind-service
     // boolean isStartServiceOnly = false;
     // boolean isBindServiceOnly=true;
+    // ValueEventListener listener = null;
+    class SaveListenser {
+        ValueEventListener listener;
+        DatabaseReference dbRef;
+
+        public SaveListenser(ValueEventListener listener, DatabaseReference dbRef) {
+            this.listener = listener;
+            this.dbRef = dbRef;
+        }
+    }
+    ArrayList<SaveListenser> saveListenserList = new ArrayList<>();
 
 
     // 綁定此 Service 的物件
@@ -45,6 +66,7 @@ public class TestServices extends Service {
             startForeground(notificationBase.getNOTIFICATION_ID(), notification);
         }
         Log.d(TAG, "onCreate");
+        tts = new Tts(this);
         if (notSleep)
             preventSleeping();
     }
@@ -67,10 +89,16 @@ public class TestServices extends Service {
             Log.d(TAG, "The Service is killed and reborn !");
         }
 
-        if (!stopFlag)
-            doTestStart();
+        if (!stopFlag) {
+            // doTestStart();
+            // doTestForegroundWrite();
+            doTestForegroundRead();
+        }
         if (notSleep){
             // return START_STICKY or  START_REDELIVER_INTENT
+            return START_STICKY;
+        }
+        if (isForeground) {
             return START_STICKY;
         }
         return super.onStartCommand(intent, flags, startId);  // the last statement
@@ -119,6 +147,8 @@ public class TestServices extends Service {
         Log.d(TAG, "onDestroy");
         stopFlag = true;
         wakeLock.release();
+        doTestForegroundRemoveListenser();
+        if (tts!=null) tts.close();
         super.onDestroy();  // has better the last statement
     }
 
@@ -128,8 +158,63 @@ public class TestServices extends Service {
         stopFlag = true;
     }
 
+    public void doTestForegroundWrite() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("testForegroundService");
+        myRef.setValue(new FbTest());
+
+    }
+
     @Override
     public void onTaskRemoved(Intent rootIntent) {
         super.onTaskRemoved(rootIntent);
+    }
+
+    public static class FbTest {
+        private int testAlive = 0;
+        private String testAliveString = "in Test";
+
+        public FbTest() { }
+
+        public int getTestAlive() { return testAlive; }
+        public void setTestAlive(int testAlive) {
+            this.testAlive = testAlive;
+        }
+
+        public String getTestAliveString() { return testAliveString; }
+    }
+
+    public void doTestForegroundRemoveListenser(){
+        for (SaveListenser saveListenser: saveListenserList) {
+            ValueEventListener listener = saveListenser.listener;
+            DatabaseReference dbRef = saveListenser.dbRef;
+            dbRef.removeEventListener(listener);
+        }
+    }
+
+    public void doTestForegroundRead() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("testForegroundService");
+
+        ValueEventListener listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                fbTest = dataSnapshot.getValue(FbTest.class);
+                Log.d(TAG, "Value is: " + fbTest.getTestAlive() + " : " + fbTest.getTestAliveString());
+                tts.queueSpeak(fbTest.getTestAliveString() + " " + fbTest.getTestAlive());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        };
+
+        saveListenserList.add(new SaveListenser(listener, myRef));
+        // Read from the database
+        myRef.addValueEventListener(listener);
     }
 }

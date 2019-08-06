@@ -1,34 +1,27 @@
 package com.example.runningtrial.subsys;
 
 import android.content.Context;
-import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 
 import java.util.Locale;
 
-/**
- *  watch.stdtime.gov.tw
- * 	time.stdtime.gov.tw
- * 	clock.stdtime.gov.tw
- * 	tick.stdtime.gov.tw
- */
-public class SubSysTTS implements TextToSpeech.OnInitListener {
+public class Tts implements android.speech.tts.TextToSpeech.OnInitListener {
     private final String TAG = getClass().getSimpleName();
-    private TextToSpeech mTextToSpeech;
-    private Locale locale = Locale.US;  // 不要用 Locale.ENGLISH, 會預設用英文(印度)
+    private android.speech.tts.TextToSpeech mTextToSpeech;
+    private Locale locale = Locale.TAIWAN;  // 不要用 Locale.ENGLISH, 會預設用英文(印度)
     private boolean isLoaded = false;
 
-    public SubSysTTS(Context context) {
-        this.mTextToSpeech = new TextToSpeech(context, this);
+    public Tts(Context context) {
+        this.mTextToSpeech = new android.speech.tts.TextToSpeech(context, this);
     }
 
     @Override
     public void onInit(int status) {
-        if (status == TextToSpeech.SUCCESS) {
+        if (status == android.speech.tts.TextToSpeech.SUCCESS) {
             isLoaded = true;
 
-            if (mTextToSpeech.isLanguageAvailable(locale) == TextToSpeech.LANG_COUNTRY_AVAILABLE) {
+            if (mTextToSpeech.isLanguageAvailable(locale) == android.speech.tts.TextToSpeech.LANG_COUNTRY_AVAILABLE) {
                 // language available
                 mTextToSpeech.setLanguage(locale);
                 mTextToSpeech.setPitch(1);    //語調(1為正常語調；0.5比正常語調低一倍；2比正常語調高一倍)
@@ -38,7 +31,7 @@ public class SubSysTTS implements TextToSpeech.OnInitListener {
         } else isLoaded = false;
     }
 
-    private void close(){
+    public void close(){
         if(mTextToSpeech != null)
         {
             mTextToSpeech.stop();
@@ -47,17 +40,27 @@ public class SubSysTTS implements TextToSpeech.OnInitListener {
     }
 
     // 發音任務將被添加到當前任務列隊之後
-    public void queueSpeak(String text) {
+    public void queueSpeak(String text, String utteranceId) {
         if (isLoaded) {
-            mTextToSpeech.speak(text, TextToSpeech.QUEUE_ADD,null,"UniqueID");
+            // utteranceId = (text.length() >2 ) ? text.substring(0, 2): text;
+            mTextToSpeech.speak(text, android.speech.tts.TextToSpeech.QUEUE_ADD,null,utteranceId);
         }
     }
+    // 發音任務將被添加到當前任務列隊之後
+    public void queueSpeak(String text) {
+        queueSpeak(text, null);
+    }
+
 
     // 會中斷當前實例正在運行的任務
-    public void flushSpeak(String text) {
+    public void flushSpeak(String text, String utteranceId) {
         if (isLoaded) {
-            mTextToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null,"UniqueID");
+            // utteranceId = (text.length() >2 ) ? text.substring(0, 2): text;
+            mTextToSpeech.speak(text, android.speech.tts.TextToSpeech.QUEUE_FLUSH,null, utteranceId);
         }
+    }
+    public void flushSpeak(String text) {
+        flushSpeak(text, null);
     }
 
     private final UtteranceProgressListener listener = new UtteranceProgressListener() {
@@ -69,7 +72,7 @@ public class SubSysTTS implements TextToSpeech.OnInitListener {
         @Override
         public void onDone(String utteranceId) {
             Log.d(TAG, "TTS complete: " + utteranceId);
-            close();
+            // close();
         }
 
         @Override
