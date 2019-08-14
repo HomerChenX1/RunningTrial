@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".subsys.TestTtsActivity"></activity>
+        <activity android:name=".subsys.TestSubsysActivity"></activity>
+        <activity android:name=".subsys.TestTtsActivity" />
         <activity android:name=".subsys.TestServicesActivity" />
 
         <service

@@ -1,6 +1,5 @@
 package com.example.runningtrial.subsys;
 
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -86,9 +85,12 @@ class NotificationBase {
 
         builder.setContentTitle(title).setContentText(content).setContentInfo("ContentInfo")
                 .setSmallIcon(iconId)
+                .setTicker("content")
+                // .setOngoing(true)
                 // .setLargeIcon(largeIcon)
                 .setWhen(System.currentTimeMillis())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                // .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
         return this;
     }

@@ -18,6 +18,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ *  need rewrite to BindService -> StartService -> StartForegroundService
+ */
 public class TestServices extends Service {
     String TAG = getClass().getSimpleName();
     private PowerManager.WakeLock wakeLock;

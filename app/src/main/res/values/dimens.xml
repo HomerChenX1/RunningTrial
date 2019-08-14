@@ -11,4 +11,38 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="md_card_radius">2dp</dimen>
+    <!--name="md_card_text" 14sp-->
+    <dimen name="md_card_text">16sp</dimen>
+    <dimen name="md_card_title">24sp</dimen>
+    <dimen name="md_card_btn_text">14sp</dimen>
+    <dimen name="md_card_btn_text_tracking">10sp</dimen>
+    <dimen name="md_card_padding">8dp</dimen>
+    <dimen name="md_card_margin">8dp</dimen>
+    <dimen name="md_card_text_space">16dp</dimen>
+
+    <dimen name="md_button_margin_bottom">16dp</dimen>
+    <dimen name="md_button_margin_right">16dp</dimen>
+    <dimen name="md_flat_button_height">36dp</dimen>
+    <dimen name="md_flat_button_width_min">88dp</dimen>
+    <dimen name="md_rasie_button_height">48dp</dimen>
+    <dimen name="md_fab_height_default">56dp</dimen>
+    <dimen name="md_fab_height_min">40dp</dimen>
+    <dimen name="md_fab_default_height_inner">24dp</dimen>
+    <dimen name="md_spinner_padding_top">16dp</dimen>
+    <dimen name="md_spinner_padding_start">24dp</dimen>
+    <dimen name="md_spinner_padding_stop">16dp</dimen>
+
+    <dimen name="md_chip_text_normal">14sp</dimen>
+    <dimen name="md_chip_text_open">16sp</dimen>
+    <dimen name="md_chip_photo_height">32sp</dimen>
+    <dimen name="md_chip_padding_start">8sp</dimen>
+    <dimen name="md_chip_padding_end">12sp</dimen>
+    <dimen name="md_chip_padding_top_inner">8sp</dimen>
+    <dimen name="md_chip_padding_top">16sp</dimen>
+    
+    <dimen name="md_dialog_margin_start">40dp</dimen>
+    <dimen name="md_dialog_margin_top">24dp</dimen>
+    <dimen name="md_dialog_padding_start">24dp</dimen>
+
 </resources>
