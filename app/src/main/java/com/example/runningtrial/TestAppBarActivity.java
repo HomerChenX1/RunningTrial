@@ -1,11 +1,11 @@
 package com.example.runningtrial;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.navigation.NavigationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -136,8 +136,8 @@ public class TestAppBarActivity extends AppCompatActivity implements NavigationV
         return false;
     }
 
-    final private android.support.v7.widget.SearchView.OnQueryTextListener queryListener =
-            new android.support.v7.widget.SearchView.OnQueryTextListener() {
+    final private androidx.appcompat.widget.SearchView.OnQueryTextListener queryListener =
+            new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
 
         @Override
         public boolean onQueryTextChange(String newText) {

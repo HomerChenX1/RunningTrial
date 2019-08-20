@@ -1,10 +1,10 @@
 package com.example.runningtrial.UI;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.runningtrial.R;
 
@@ -38,7 +38,7 @@ public class TestAppBarLayoutActivity extends AppCompatActivity {
         } else {
             // xml need to add android:scrollbars="vertical"
             LinearLayoutManager mgr = new LinearLayoutManager(this);
-            mgr.setOrientation(LinearLayoutManager.VERTICAL);
+            mgr.setOrientation(RecyclerView.VERTICAL);
             recyclerView.setLayoutManager(mgr);
         }
         myAdapter = new MainRecyclerViewGridAdapter(gridDataArray, isGrid);

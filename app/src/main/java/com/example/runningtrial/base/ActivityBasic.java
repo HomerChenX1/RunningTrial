@@ -3,8 +3,8 @@ package com.example.runningtrial.base;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 // https://www.jianshu.com/p/f45b46be671e
 @SuppressLint("Registered")

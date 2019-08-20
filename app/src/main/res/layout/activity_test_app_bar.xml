@@ -8,7 +8,7 @@
     android:background="@color/windowBackground"
     tools:context=".TestAppBarActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbTestApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
     <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
     <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
 
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:visibility="gone"
         android:id="@+id/navigation_view"
         android:layout_width="240dp"

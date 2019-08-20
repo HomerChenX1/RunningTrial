@@ -2,7 +2,7 @@ package com.example.runningtrial;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,6 +19,7 @@ import com.example.runningtrial.UI.TestCoordinateLayoutActivity;
 import com.example.runningtrial.UI.TestRecyclerViewActivity;
 import com.example.runningtrial.UI.TestViewDragHelperActivity;
 import com.example.runningtrial.base.DataWarehouse;
+import com.example.runningtrial.pkgs.TestPkgActivity;
 import com.example.runningtrial.subsys.TestNotificationActivity;
 import com.example.runningtrial.subsys.TestServicesActivity;
 import com.example.runningtrial.subsys.TestSubsysActivity;
@@ -229,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
         setupButton(R.id.btnTestServiceBind, "btnTestServiceBind", TestServicesActivity.class);
         setupButton(R.id.btnTestTtsAll, "btnTestTtsAll", TestTtsActivity.class);
         setupButton(R.id.btnTestSubsys, "btnTestSubsys", TestSubsysActivity.class);
+        setupButton(R.id.btnTestPkg, "btnTestPkg", TestPkgActivity.class);
     }
 
     CompoundButton.OnCheckedChangeListener swListenser = new CompoundButton.OnCheckedChangeListener() {

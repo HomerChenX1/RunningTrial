@@ -10,16 +10,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.runningtrial.R;
 
 import java.io.Serializable;
 
-import static android.support.v4.app.NotificationCompat.DEFAULT_LIGHTS;
-import static android.support.v4.app.NotificationCompat.DEFAULT_SOUND;
+import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
+import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 
 public class TestNotificationActivity extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();

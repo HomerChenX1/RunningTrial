@@ -1,14 +1,14 @@
 package com.example.runningtrial.UI;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.runningtrial.R;
 import com.example.runningtrial.base.ActivityBasic;
@@ -53,7 +53,7 @@ public class TestRecyclerViewActivity extends ActivityBasic {
         } else {
             // xml need to add android:scrollbars="vertical"
             LinearLayoutManager mgr = new LinearLayoutManager(this);
-            mgr.setOrientation(LinearLayoutManager.VERTICAL);
+            mgr.setOrientation(RecyclerView.VERTICAL);
             recyclerView.setLayoutManager(mgr);
             dragDirs = ItemTouchHelper.UP|ItemTouchHelper.DOWN;
             swipeDirs = ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT;

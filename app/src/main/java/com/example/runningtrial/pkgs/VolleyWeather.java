@@ -1,6 +1,6 @@
 package com.example.runningtrial.pkgs;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
