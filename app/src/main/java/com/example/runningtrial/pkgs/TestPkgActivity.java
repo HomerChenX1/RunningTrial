@@ -27,6 +27,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.photos.library.v1.PhotosLibraryClient;
+import com.google.photos.library.v1.internal.InternalPhotosLibraryClient;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -265,6 +266,8 @@ public class TestPkgActivity extends AppCompatActivity implements View.OnClickLi
             return;
         }
         Log.d(TAG, "success in PhotosLibraryClientFactory");
+        InternalPhotosLibraryClient.ListAlbumsPagedResponse albums = client.listAlbums();
+        Log.d(TAG, "listAlbums");
     }
 }
 
