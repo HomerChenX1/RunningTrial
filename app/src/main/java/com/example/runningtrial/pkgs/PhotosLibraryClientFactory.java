@@ -17,20 +17,20 @@
 package com.example.runningtrial.pkgs;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.google.android.gms.auth.GoogleAuthException;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.gax.core.FixedCredentialsProvider;
 import com.google.auth.Credentials;
-import com.google.auth.http.HttpTransportFactory;
 import com.google.auth.oauth2.AccessToken;
 import com.google.auth.oauth2.UserCredentials;
 import com.google.photos.library.v1.PhotosLibraryClient;
@@ -68,7 +68,7 @@ public class PhotosLibraryClientFactory {
     return PhotosLibraryClient.initialize(settings);
   }
 
-  private static Credentials getUserCredentials(Context context, List<String> selectedScopes)
+  private static Credentials getUserCredentials2(Context context, List<String> selectedScopes)
   //private static Credentials getUserCredentials(String credentialsPath, List<String> selectedScopes)
       throws IOException, GeneralSecurityException {
 
@@ -129,28 +129,34 @@ public class PhotosLibraryClientFactory {
 //      });
   }
 
-    private static Credentials getUserCredentials1(Context context, List<String> selectedScopes)
+    private static Credentials getUserCredentials(Context context, List<String> selectedScopes)
             throws IOException, GeneralSecurityException {
         GoogleClientSecrets clientSecrets =
                 GoogleClientSecrets.load(
                         // JSON_FACTORY, new InputStreamReader(new FileInputStream(credentialsPath)));
                         JSON_FACTORY, new InputStreamReader(
-                                context.getAssets().open("webTry1.json")));
+                                context.getAssets().open("credentials_signin.json")));
         String clientId = clientSecrets.getDetails().getClientId();
         String clientSecret = clientSecrets.getDetails().getClientSecret();
 
-        String token = TestPkgActivity.account.getServerAuthCode();
+        GoogleAccountCredential credential =
+                GoogleAccountCredential.usingOAuth2(
+                        context, selectedScopes );
+        credential.setSelectedAccount(TestPkgActivity.mAccount);
+
+        String token = null;
+        try {
+            token = credential.getToken();
+        } catch (GoogleAuthException e) {
+            e.printStackTrace();
+            Log.d("getUserCredentials", "credential.getToken() fail");
+        }
+
         AccessToken a = new AccessToken(token, null);
         return UserCredentials.newBuilder()
                 .setClientId(clientId)
                 .setClientSecret(clientSecret)
                 .setAccessToken(a)
-                .setHttpTransportFactory(new HttpTransportFactory() {
-                    @Override
-                    public HttpTransport create() {
-                        return new com.google.api.client.http.javanet.NetHttpTransport();
-                    }
-                })
                 .build();
 
 //        return UserCredentials.fromStream(context.getAssets().open("webTry1.json"), new HttpTransportFactory() {

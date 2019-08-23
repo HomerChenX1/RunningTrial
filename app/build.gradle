@@ -26,6 +26,8 @@ android {
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
     }
 }
 
@@ -38,27 +40,28 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.google.firebase:firebase-database:18.0.1'
+    implementation 'com.google.firebase:firebase-database:19.0.0'
 
     // Dependency for Google Sign-In
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     // Dependencies for the REST API example
-
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.29.0'
+    implementation 'com.google.oauth-client:google-oauth-client-java6:1.29.0'
+    // io.grpc.ManagedChannelProvider$ProviderNotFoundException:
     implementation ('io.grpc:grpc-protobuf:1.21.0'){
         exclude group: 'org.apache.httpcomponents', module:'httpclient'
     }
     implementation ('io.grpc:grpc-stub:1.21.0'){
         exclude group: 'org.apache.httpcomponents', module:'httpclient'
     }
-    implementation ('com.google.api:gax:1.48.0'){
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
-    }
     implementation ('io.grpc:grpc-okhttp:1.21.0'){
         exclude group: 'org.apache.httpcomponents', module:'httpclient'
     }
 
-    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.29.0'
-    implementation 'com.google.oauth-client:google-oauth-client-java6:1.29.0'
+    // induce java.lang.AbstractMethodError: abstract method "boolean com.google.api.gax.rpc.TransportChannelProvider.needsCredentials()"
+    // implementation ('com.google.api:gax:1.48.0'){
+        // exclude group: 'org.apache.httpcomponents', module:'httpclient'
+    // }
 
     implementation 'com.google.api-client:google-api-client:1.30.2'
     implementation('com.google.api-client:google-api-client-android:1.26.0') {
@@ -67,9 +70,11 @@ dependencies {
     // photo library api
     // implementation 'com.google.photos.library:google-photos-library-client:1.4.0'
     implementation('com.google.photos.library:google-photos-library-client:1.4.0'){
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+        // exclude group: 'org.apache.httpcomponents', module:'httpclient'
     }
-    implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    // implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    // implementation 'io.grpc:grpc-netty:1.21.0'
+    // implementation 'com.squareup.okhttp:okhttp:2.6.0'
 
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
     testImplementation 'junit:junit:4.12'
