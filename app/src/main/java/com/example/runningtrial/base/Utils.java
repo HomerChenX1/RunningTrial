@@ -1,12 +1,10 @@
 package com.example.runningtrial.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.lang.reflect.Field;
-import java.util.logging.Logger;
 
 public class Utils {
     public static int getResId(String resName, Class<?> c) {
@@ -35,7 +33,7 @@ public class Utils {
         boolean onBackPressed();
     }
 
-    public static interface CommonCallBack {
+    public static interface CallBackBase {
         public void callBack(int status, Object msg);
     }
 

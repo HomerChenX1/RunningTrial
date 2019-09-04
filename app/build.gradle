@@ -47,19 +47,19 @@ dependencies {
     implementation 'com.google.oauth-client:google-oauth-client-jetty:1.29.0'
     implementation 'com.google.oauth-client:google-oauth-client-java6:1.29.0'
     // io.grpc.ManagedChannelProvider$ProviderNotFoundException:
-    implementation ('io.grpc:grpc-protobuf:1.21.0'){
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+    implementation('io.grpc:grpc-protobuf:1.21.0') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    implementation ('io.grpc:grpc-stub:1.21.0'){
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+    implementation('io.grpc:grpc-stub:1.21.0') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    implementation ('io.grpc:grpc-okhttp:1.21.0'){
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+    implementation('io.grpc:grpc-okhttp:1.21.0') {
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
 
     // induce java.lang.AbstractMethodError: abstract method "boolean com.google.api.gax.rpc.TransportChannelProvider.needsCredentials()"
     // implementation ('com.google.api:gax:1.48.0'){
-        // exclude group: 'org.apache.httpcomponents', module:'httpclient'
+    // exclude group: 'org.apache.httpcomponents', module:'httpclient'
     // }
 
     implementation 'com.google.api-client:google-api-client:1.30.2'
@@ -68,7 +68,7 @@ dependencies {
     }
     // photo library api
     // implementation 'com.google.photos.library:google-photos-library-client:1.4.0'
-    implementation('com.google.photos.library:google-photos-library-client:1.4.0'){
+    implementation('com.google.photos.library:google-photos-library-client:1.4.0') {
         // exclude group: 'org.apache.httpcomponents', module:'httpclient'
     }
     // implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'

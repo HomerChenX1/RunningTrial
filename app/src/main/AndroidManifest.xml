@@ -10,15 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".pkgs.SignInActivity"></activity>
         <activity android:name=".pkgs.TestPkgActivity" />
         <activity android:name=".subsys.TestSubsysActivity" />
         <activity android:name=".subsys.TestTtsActivity" />
         <activity android:name=".subsys.TestServicesActivity" />
-
         <activity android:name=".subsys.TestNoti2Activity" />
-
         <activity android:name=".subsys.TestNotificationActivity" />
-
         <activity
             android:name=".UI.TestAppBarLayoutActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -43,17 +41,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver android:name=".subsys.SnoozeReceiver" />
+
         <service
             android:name=".subsys.TestServices"
             android:enabled="true"
             android:exported="true" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>
